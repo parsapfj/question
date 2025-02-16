@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love, Nila ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Parisienne&display=swap');
+        
+        body {
+            text-align: center;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: 'Great Vibes', cursive;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            width: 500px;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+        }
+        h1 {
+            font-size: 3.5em;
+            font-family: 'Dancing Script', cursive;
+            animation: heartbeat 2s infinite;
+        }
+        p {
+            font-size: 1.5em;
+            font-family: 'Parisienne', cursive;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        button {
+            padding: 14px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.5em;
+            cursor: pointer;
+            transition: 0.3s;
+            font-family: 'Dancing Script', cursive;
+        }
+        .yes {
+            background: #ff4b5c;
+            color: white;
+            box-shadow: 0 5px 15px rgba(255, 75, 92, 0.5);
+        }
+        .yes:hover {
+            background: #e84353;
+            transform: scale(1.1);
+        }
+        .friends {
+            background: white;
+            color: #ff4b5c;
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        .friends:hover {
+            background: #f8d7da;
+            transform: scale(1.1);
+        }
+        .hidden {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.8em;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .heart {
+            font-size: 3.5em;
+            animation: heartbeat 1.5s infinite;
+        }
+        .floating-heart {
+            position: absolute;
+            font-size: 2em;
+            color: white;
+            animation: floatUp 5s infinite ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-100px); opacity: 0; }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            p {
+                font-size: 1.2em;
+            }
+            button {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="https://www.mboxdrive.com/Taylor%20Swift%20-%20Love%20Story%20(Piano%20Version).mp3" type="audio/mpeg">
+    </audio>
+    <div class="container">
+        <h1>My Dearest Nila ❤️</h1>
+        <p>I've fallen for you, and I can't help but wonder... Would you be mine for just a week? Let’s give our love a chance to bloom. 💕</p>
+        <div class="buttons">
+            <button class="yes" onclick="showLove()">Yes! 💖</button>
+            <button class="friends" onclick="alert('Let’s just be friends! 😊')">Let’s just be friends 🤝</button>
+        </div>
+        <p id="love-message" class="hidden">Yay! This will be the most magical week ever! 💕 <span class="heart">❤️</span></p>
+    </div>
+    <script>
+        function showLove() {
+            document.getElementById('love-message').style.display = 'block';
+            createHearts();
+        }
+        
+        function createHearts() {
+            for (let i = 0; i < 10; i++) {
+                let heart = document.createElement("div");
+                heart.className = "floating-heart";
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+        }
+    </script>
+</body>
+</html>
